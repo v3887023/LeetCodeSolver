@@ -27,7 +27,7 @@ class P2 {
         var p2: ListNode? = l2
         var carry = 0
         while (p1 != null && p2 != null) {
-            val n: Int = p1.value + p2.value + carry
+            val n: Int = p1.`val` + p2.`val` + carry
             p.next = ListNode(n % 10)
             carry = n / 10
             p = p.next!!
@@ -35,14 +35,14 @@ class P2 {
             p2 = p2.next
         }
         while (p1 != null) {
-            val n: Int = p1.value + carry
+            val n: Int = p1.`val` + carry
             p.next = ListNode(n % 10)
             carry = n / 10
             p = p.next!!
             p1 = p1.next
         }
         while (p2 != null) {
-            val n: Int = p2.value + carry
+            val n: Int = p2.`val` + carry
             p.next = ListNode(n % 10)
             carry = n / 10
             p = p.next!!
