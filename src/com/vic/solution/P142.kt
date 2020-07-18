@@ -31,7 +31,23 @@ package com.vic.solution
  */
 class P142 {
     fun detectCycle(head: ListNode?): ListNode? {
+        var slow = head
+        var fast = head
 
+        while (fast != null) {
+            fast = fast.next ?: break
+            fast = fast.next
+            slow = slow!!.next
+
+            if (fast == slow) {
+                slow = head
+                while (slow != fast) {
+                    slow = slow!!.next
+                    fast = fast!!.next
+                }
+                return fast
+            }
+        }
 
         return null
     }
