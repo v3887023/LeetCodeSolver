@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 70. 爬楼梯
@@ -29,6 +29,16 @@ package com.vic.solution.unsolved
  */
 class P70 {
     fun climbStairs(n: Int): Int {
-        return 0
+        var first = 1
+        var second = 1
+
+        var x = n
+        while (x > 1) {
+            second = first + second
+            first = second - first
+            x--
+        }
+
+        return second
     }
 }

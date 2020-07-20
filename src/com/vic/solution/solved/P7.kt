@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 7. 整数反转
@@ -17,7 +17,7 @@ package com.vic.solution.unsolved
  * 输出: 21
  *
  * 【注意】
- * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。
+ * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2^31,  2^31 − 1]。
  * 请根据这个假设，如果反转后整数溢出那么就返回 0。
  *
  * 来源：力扣（LeetCode）
@@ -26,6 +26,23 @@ package com.vic.solution.unsolved
  */
 class P7 {
     fun reverse(x: Int): Int {
-        return 0
+        val negative = x < 0
+
+        var result = 0L
+        var temp = if (negative) -x else x
+        while (temp > 0) {
+            result = result * 10 + temp % 10
+            temp /= 10
+        }
+
+        if (negative) {
+            result = -result
+        }
+
+        if (result < Int.MIN_VALUE || result > Int.MAX_VALUE) {
+            result = 0
+        }
+
+        return result.toInt()
     }
 }
