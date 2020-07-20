@@ -1,5 +1,8 @@
 package com.vic.solution
 
+import java.util.*
+import kotlin.collections.ArrayList
+
 /**
  * 118. 杨辉三角
  * 给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
@@ -23,7 +26,7 @@ package com.vic.solution
  */
 class P118 {
     fun generate(numRows: Int): List<List<Int>> {
-        val result = MutableList(0) { MutableList(0) { 0 } }
+        val result: MutableList<MutableList<Int>> = ArrayList()
 
         for (i in 0 until numRows) {
             val list = ArrayList<Int>(i + 1)
