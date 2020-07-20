@@ -1,4 +1,4 @@
-package com.vic.solution
+package com.vic.solution.solved
 
 /**
  * 1486. 数组异或操作

@@ -1,4 +1,4 @@
-package com.vic.solution
+package com.vic.solution.solved
 
 /**
  * 27. 移除元素

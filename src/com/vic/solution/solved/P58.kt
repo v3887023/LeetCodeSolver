@@ -1,4 +1,4 @@
-package com.vic.solution
+package com.vic.solution.solved
 
 /**
  * 58. 最后一个单词的长度

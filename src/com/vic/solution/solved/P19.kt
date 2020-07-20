@@ -1,4 +1,6 @@
-package com.vic.solution
+package com.vic.solution.solved
+
+import com.vic.solution.ListNode
 
 /**
  * 19. 删除链表的倒数第N个节点

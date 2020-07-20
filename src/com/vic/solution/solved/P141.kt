@@ -1,4 +1,6 @@
-package com.vic.solution
+package com.vic.solution.solved
+
+import com.vic.solution.ListNode
 
 /**
  * 141. 环形链表

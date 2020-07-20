@@ -1,4 +1,6 @@
-package com.vic.solution
+package com.vic.solution.solved
+
+import com.vic.solution.ListNode
 
 /**
  * 83. 删除排序链表中的重复元素

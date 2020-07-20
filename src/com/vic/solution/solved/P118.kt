@@ -1,6 +1,5 @@
-package com.vic.solution
+package com.vic.solution.solved
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 /**

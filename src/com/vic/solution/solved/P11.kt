@@ -1,4 +1,4 @@
-package com.vic.solution
+package com.vic.solution.solved
 
 import kotlin.math.min
 

@@ -1,4 +1,6 @@
-package com.vic.solution
+package com.vic.solution.solved
+
+import com.vic.solution.ListNode
 
 /**
  * 21. 合并两个有序链表
