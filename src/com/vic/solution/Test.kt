@@ -1,5 +1,8 @@
 package com.vic.solution
 
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
+
 fun main() {
     val a = Int.MAX_VALUE / 2 + 10
     val b = Int.MAX_VALUE / 2 + 4
@@ -24,8 +27,49 @@ fun main() {
     for (i in list.indices) {
 
     }
+
+    val p = Person()
+    //    p.name
+    Person.name
+    Person.abc()
+
+    lock(ReentrantLock()) {
+        doPrint()
+    }
 }
 
 fun a(list: List<Int>) {
 
+}
+
+class Person {
+    companion object {
+        val name = 1
+
+        init {
+            println("init")
+        }
+
+        fun abc() {
+
+        }
+    }
+}
+
+enum class Color {
+    RED, BLUE, PURPLE, ORANGE, YELLOW
+}
+
+inline fun <T> lock(l: Lock, block: () -> T) {
+    l.lock()
+
+    try {
+        block()
+    } finally {
+        l.unlock()
+    }
+}
+
+fun doPrint() {
+    println("Hello world!")
 }
