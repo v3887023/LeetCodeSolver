@@ -36,6 +36,18 @@ fun main() {
     lock(ReentrantLock()) {
         doPrint()
     }
+
+    println("start")
+
+    list.forEach {
+        if (it == 3) return@forEach
+        println(it)
+    }
+
+    println("end")
+
+    Student().name
+    Student().isMan
 }
 
 fun a(list: List<Int>) {
@@ -44,7 +56,7 @@ fun a(list: List<Int>) {
 
 class Person {
     companion object {
-        val name = 1
+        const val name = 1
 
         init {
             println("init")
