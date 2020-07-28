@@ -9,7 +9,7 @@ package com.vic.solution.solved
  * get(key)：返回给定的键所对应的值，如果映射中不包含这个键，返回-1。
  * remove(key)：如果映射中存在这个键，删除这个数值对。
  *
- * 示例：
+ * 【示例】
  * MyHashMap hashMap = new MyHashMap();
  * hashMap.put(1, 1);          
  * hashMap.put(2, 2);        
@@ -20,7 +20,7 @@ package com.vic.solution.solved
  * hashMap.remove(2);         // 删除键为2的数据
  * hashMap.get(2);            // 返回 -1 (未找到)
  *
- * 注意：
+ * 【注意】
  * 所有的值都在 [0, 1000000]的范围内。
  * 操作的总数目在[1, 10000]范围内。
  * 不要使用内建的哈希库。
