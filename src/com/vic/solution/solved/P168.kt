@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 168. Excel表列名称
@@ -18,11 +18,11 @@ package com.vic.solution.unsolved
  * 输入: 1
  * 输出: "A"
  *
- * 【示例 2】
+ * 【示例 2】
  * 输入: 28
  * 输出: "AB"
  *
- * 【示例 3】
+ * 【示例 3】
  * 输入: 701
  * 输出: "ZY"
  *
@@ -32,6 +32,17 @@ package com.vic.solution.unsolved
  */
 class P168 {
     fun convertToTitle(n: Int): String {
-        return ""
+        var x = n
+        val sb = StringBuilder()
+        while (x > 0) {
+            var y = x % 26
+            if (y == 0) {
+                y = 26
+            }
+            sb.append('A' + y - 1)
+            x = (x - y) / 26
+        }
+
+        return sb.reverse().toString()
     }
 }

@@ -13,7 +13,7 @@ package com.vic.solution.solved
  * 【进阶】
  * 你可以优化你的算法到 O(k) 空间复杂度吗？
  *
- * 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+ * 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/pascals-triangle-ii

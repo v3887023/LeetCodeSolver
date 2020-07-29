@@ -15,7 +15,7 @@ package com.vic.solution.solved
  * 【提示】
  * 1 <= A.length <= 10000
  * -10000 <= A[i] <= 10000
- * A 已按非递减顺序排序。
+ * A 已按非递减顺序排序。
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/squares-of-a-sorted-array

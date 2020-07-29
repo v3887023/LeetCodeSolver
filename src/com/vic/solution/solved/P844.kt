@@ -1,4 +1,6 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
+
+import java.util.*
 
 /**
  * 844. 比较含退格的字符串
@@ -40,6 +42,26 @@ package com.vic.solution.unsolved
  */
 class P844 {
     fun backspaceCompare(S: String, T: String): Boolean {
-        return false
+        val s = S.backspace()
+        val t = T.backspace()
+
+        return s == t
+    }
+
+    private fun String.backspace() : String {
+        val stack = LinkedList<Char>()
+
+        for (c in this) {
+            when (c) {
+                '#' -> {
+                    if (stack.isNotEmpty()) {
+                        stack.pop()
+                    }
+                }
+                else -> stack.push(c)
+            }
+        }
+
+        return String(stack.toCharArray())
     }
 }

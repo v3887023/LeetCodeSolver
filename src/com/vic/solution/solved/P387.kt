@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 387. 字符串中的第一个唯一字符
@@ -19,6 +19,18 @@ package com.vic.solution.unsolved
  */
 class P387 {
     fun firstUniqChar(s: String): Int {
-        return 0
+        val a = IntArray(26)
+
+        for (c in s) {
+            a[c - 'a']++
+        }
+
+        for ((i, c) in s.withIndex()) {
+            if (a[c - 'a'] == 1) {
+                return i
+            }
+        }
+
+        return -1
     }
 }

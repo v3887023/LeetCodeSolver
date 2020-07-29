@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 705. 设计哈希集合
@@ -11,17 +11,17 @@ package com.vic.solution.unsolved
  *
  * 【示例】
  * MyHashSet hashSet = new MyHashSet();
- * hashSet.add(1);        
- * hashSet.add(2);        
- * hashSet.contains(1);    // 返回 true
- * hashSet.contains(3);    // 返回 false (未找到)
- * hashSet.add(2);          
- * hashSet.contains(2);    // 返回 true
- * hashSet.remove(2);          
- * hashSet.contains(2);    // 返回  false (已经被删除)
+ * hashSet.add(1);
+ * hashSet.add(2);
+ * hashSet.contains(1); // 返回 true
+ * hashSet.contains(3); // 返回 false (未找到)
+ * hashSet.add(2);
+ * hashSet.contains(2); // 返回 true
+ * hashSet.remove(2);
+ * hashSet.contains(2); // 返回  false (已经被删除)
  *
  * 【注意】
- * 所有的值都在 [0, 1000000]的范围内。
+ * 所有的值都在[0, 1000000]的范围内。
  * 操作的总数目在[1, 10000]范围内。
  * 不要使用内建的哈希集合库。
  *
@@ -31,18 +31,21 @@ package com.vic.solution.unsolved
  */
 class P705 {
     /** Initialize your data structure here. */
-
+    private val PRESENT = Any()
+    private val map = HashMap<Int, Any>()
 
     fun add(key: Int) {
-
+        if (!contains(key)) {
+            map[key] =  PRESENT
+        }
     }
 
     fun remove(key: Int) {
-
+        map.remove(key)
     }
 
     /** Returns true if this set contains the specified element */
     fun contains(key: Int): Boolean {
-        return false
+        return map[key] == PRESENT
     }
 }

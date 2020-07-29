@@ -1,8 +1,8 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 1441. 用栈操作构建数组
- * 给你一个目标数组 target 和一个整数 n。每次迭代，需要从  list = {1,2,3..., n} 中依序读取一个数字。
+ * 给你一个目标数组 target 和一个整数 n。每次迭代，需要从  list = {1,2,3..., n} 中依序读取一个数字。
  *
  * 请使用下述操作来构建目标数组 target ：
  * Push：从 list 中读取一个新元素， 并将其推入数组中。
@@ -38,7 +38,7 @@ package com.vic.solution.unsolved
  *
  * 【提示】
  * 1 <= target.length <= 100
- * 1 <= target[i] <= 100
+ * 1 <= target[i] <= 100
  * 1 <= n <= 100
  * target 是严格递增的
  *
@@ -49,6 +49,20 @@ package com.vic.solution.unsolved
 class P1441 {
     fun buildArray(target: IntArray, n: Int): List<String> {
         val list = ArrayList<String>()
+        val PUSH = "Push"
+        val POP = "Pop"
+
+        var x = 1
+        for (m in target) {
+            while (m != x) {
+                list.add(PUSH)
+                list.add(POP)
+                x++
+            }
+            list.add(PUSH)
+            x++
+        }
+
         return list
     }
 }
