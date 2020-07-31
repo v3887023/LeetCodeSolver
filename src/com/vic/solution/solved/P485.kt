@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 485. 最大连续1的个数
@@ -19,6 +19,24 @@ package com.vic.solution.unsolved
  */
 class P485 {
     fun findMaxConsecutiveOnes(nums: IntArray): Int {
-        return 0
+        var max = Int.MIN_VALUE
+        var firstIndex = 0
+
+        for ((i, n) in nums.withIndex()) {
+            if (n == 0) {
+                val len = i - firstIndex
+                if (len > max) {
+                    max = len
+                }
+                firstIndex = i + 1
+            }
+        }
+
+        val len = nums.size - firstIndex
+        if (len > max) {
+            max = len
+        }
+
+        return max
     }
 }
