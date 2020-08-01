@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 383. 赎金信
@@ -19,6 +19,22 @@ package com.vic.solution.unsolved
  */
 class P383 {
     fun canConstruct(ransomNote: String, magazine: String): Boolean {
-        return false
+        val map = IntArray(26)
+
+        for (c in magazine) {
+            map[c - 'a']++
+        }
+
+        for (c in ransomNote) {
+            map[c - 'a']--
+        }
+
+        for (c in map) {
+            if (c < 0) {
+                return false
+            }
+        }
+
+        return true
     }
 }
