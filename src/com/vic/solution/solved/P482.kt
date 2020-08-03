@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 482. 密钥格式化
@@ -31,8 +31,49 @@ package com.vic.solution.unsolved
  */
 class P482 {
     fun licenseKeyFormatting(S: String, K: Int): String {
+        var newLength = 0
+        for (c in S) {
+            if (c != '-') {
+                newLength++
+            }
+        }
 
+        if (newLength == 0) {
+            return ""
+        }
 
-        return ""
+        val groupCount = newLength / K
+        val leftCount = newLength % K
+        newLength += if (leftCount == 0) groupCount - 1 else groupCount
+
+        val length = S.length
+        val a = CharArray(newLength)
+        var i = 0
+        var j = 0
+        while (j < length && i < leftCount) {
+            val c = S[j++]
+            if (c != '-') {
+                a[i++] = c.toUpperCase()
+            }
+        }
+
+        if (i in 1 until newLength) {
+            a[i++] = '-'
+        }
+
+        var x = 0
+        while (j < length) {
+            val c = S[j++]
+            if (c != '-') {
+                a[i++] = c.toUpperCase()
+                x++
+                if (x == K && i < newLength) {
+                    x = 0
+                    a[i++] = '-'
+                }
+            }
+        }
+
+        return String(a)
     }
 }
