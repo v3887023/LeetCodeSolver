@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
 import java.util.*
