@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 744. 寻找比目标字母大的最小字母
@@ -54,6 +54,37 @@ package com.vic.solution.unsolved
  */
 class P744 {
     fun nextGreatestLetter(letters: CharArray, target: Char): Char {
-        return ' '
+        var low = 0
+        var high = letters.lastIndex
+
+        while (low <= high) {
+            val mid = (low + high).ushr(1)
+            if (letters[mid] <= target) {
+                low = mid + 1
+            } else {
+                high = mid - 1
+            }
+        }
+
+        return if (low == letters.size) letters[0] else letters[low]
+    }
+
+    fun nextGreatestLetter2(letters: CharArray, target: Char): Char {
+        var low = 0
+        var high = letters.lastIndex
+
+        if (target < letters[0] || target >= letters[letters.lastIndex]) {
+            return letters[0]
+        }
+
+        while (low <= high) {
+            val mid = (low + high).ushr(1)
+            when {
+                letters[mid] <= target -> low = mid + 1
+                else -> high = mid - 1
+            }
+        }
+
+        return letters[low]
     }
 }
