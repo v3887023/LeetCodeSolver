@@ -37,7 +37,7 @@ class P264 {
             val n3 = list[i3] * 3
             val n5 = list[i5] * 5
 
-            val min = minOf(n2, n3,n5)
+            val min = minOf(n2, n3, n5)
             list.add(min)
 
             if (min == n2) {

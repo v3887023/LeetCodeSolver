@@ -36,7 +36,7 @@ class P705 {
 
     fun add(key: Int) {
         if (!contains(key)) {
-            map[key] =  PRESENT
+            map[key] = PRESENT
         }
     }
 

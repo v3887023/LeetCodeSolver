@@ -48,7 +48,7 @@ class P189 {
         reverse(nums, realK, nums.size - realK)
     }
 
-    private fun reverse(nums: IntArray,  start: Int, count: Int) {
+    private fun reverse(nums: IntArray, start: Int, count: Int) {
         var i = start
         var j = start + count - 1
         while (i < j) {

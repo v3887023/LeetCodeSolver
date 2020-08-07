@@ -1,7 +1,5 @@
 package com.vic.solution.unsolved
 
-import java.lang.StringBuilder
-
 /**
  * 504. 七进制数
  * 给定一个整数，将其转化为 7 进制，并以字符串形式输出。

@@ -48,7 +48,7 @@ class P844 {
         return s == t
     }
 
-    private fun String.backspace() : String {
+    private fun String.backspace(): String {
         val stack = LinkedList<Char>()
 
         for (c in this) {
