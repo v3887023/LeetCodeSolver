@@ -20,7 +20,7 @@ package com.vic.solution.solved
  */
 class P303 {
     class NumArray(nums: IntArray) {
-        val sumArray = IntArray(nums.size)
+        private val sumArray = IntArray(nums.size)
 
         init {
             var sum = 0
