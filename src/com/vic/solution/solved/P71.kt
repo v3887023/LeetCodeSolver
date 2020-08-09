@@ -1,4 +1,6 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
+
+import java.util.*
 
 /**
  * 71. 简化路径
@@ -43,8 +45,36 @@ package com.vic.solution.unsolved
  */
 class P71 {
     fun simplifyPath(path: String): String {
+        val stack = LinkedList<String>()
 
+        var i = 0
+        val length = path.length
+        var lastSlashIndex = -1
+        while (i <= length) {
+            val c = if (i < length) path[i] else '/'
+            if (c == '/') {
+                if (lastSlashIndex != -1) {
+                    when (val s = path.substring(lastSlashIndex + 1, i)) {
+                        "", "." -> {}
+                        ".." -> if (stack.isNotEmpty()) stack.pop()
+                        else -> stack.push(s)
+                    }
+                }
 
-        return ""
+                lastSlashIndex = i
+            }
+            i++
+        }
+
+        if (stack.isEmpty()) {
+            return "/"
+        }
+
+        val sb = StringBuilder()
+        for (j in stack.lastIndex downTo  0) {
+            sb.append('/').append(stack[j])
+        }
+
+        return sb.toString()
     }
 }
