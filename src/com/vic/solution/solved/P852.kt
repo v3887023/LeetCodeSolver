@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 852. 山脉数组的峰顶索引
@@ -27,6 +27,17 @@ package com.vic.solution.unsolved
  */
 class P852 {
     fun peakIndexInMountainArray(A: IntArray): Int {
-        return 0
+        var low = 0
+        var high = A.lastIndex
+
+        while (low <= high) {
+            val mid = (low + high).ushr(1)
+            when (A[mid - 1].compareTo(A[mid])) {
+                -1 -> low = mid + 1
+                1 -> high = mid - 1
+            }
+        }
+
+        return low - 1
     }
 }

@@ -1,4 +1,6 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
+
+import java.util.*
 
 /**
  * 735. 行星碰撞
@@ -39,8 +41,8 @@ package com.vic.solution.unsolved
  * 由于移动方向相同的行星不会发生碰撞，所以最终没有行星发生碰撞。
  *
  * 【说明】
- * 数组 asteroids 的长度不超过 10000。
- * 每一颗行星的大小都是非零整数，范围是 [-1000, 1000] 。
+ * 数组 asteroids 的长度不超过 10000。
+ * 每一颗行星的大小都是非零整数，范围是 [-1000, 1000] 。
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/asteroid-collision
@@ -48,10 +50,31 @@ package com.vic.solution.unsolved
  */
 class P735 {
     fun asteroidCollision(asteroids: IntArray): IntArray {
-        val result = IntArray(asteroids.size)
+        val stack = LinkedList<Int>()
 
+        for (current in asteroids) {
+            var currentExist = true
+            while (stack.isNotEmpty() && currentExist) {
+                val previous = stack.peek()
+                if (previous > 0 && current < 0) {
+                    when (previous.compareTo(-current)) {
+                        -1 -> stack.pop()
+                        0 -> {
+                            stack.pop()
+                            currentExist = false
+                        }
+                        1 -> currentExist = false
+                    }
+                } else {
+                    break
+                }
+            }
 
+            if (currentExist) {
+                stack.push(current)
+            }
+        }
 
-        return result
+        return stack.toIntArray().reversedArray()
     }
 }

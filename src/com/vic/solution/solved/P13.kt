@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 13. 罗马数字转整数
@@ -49,6 +49,48 @@ package com.vic.solution.unsolved
  */
 class P13 {
     fun romanToInt(s: String): Int {
-        return 0
+        val map = mapOf("I" to 1, "IV" to 4, "V" to 5, "IX" to 9, "X" to 10, "XL" to 40, "L" to 50,
+                "XC" to 90, "C" to 100, "CD" to 400, "D" to 500, "CM" to 900, "M" to 1000)
+
+        var result = 0
+        var i = s.lastIndex
+        while (i >= 0) {
+            if (i > 0) {
+                val s2 = s.substring(i - 1, i + 1)
+                var value = map.getOrDefault(s2, 0)
+                if (value == 0) {
+                    value = map[s[i].toString()] ?: 0
+                } else {
+                    i--
+                }
+                result += value
+            } else {
+                result += map[s[i].toString()] ?: 0
+            }
+            i--
+        }
+
+        return result
+    }
+
+    fun romanToInt2(s: String): Int {
+        val map = mapOf('I' to 1, 'V' to 5, 'X' to 10, 'L' to 50, 'C' to 100, 'D' to 500, 'M' to 1000)
+
+        var result = 0
+        var lastValue = map[s[0]] ?: 0
+        for (i in 1 until s.length) {
+            val value = map[s[i]] ?: 0
+            if (lastValue < value) {
+                result -= lastValue
+            } else {
+                result += lastValue
+            }
+
+            lastValue = value
+        }
+
+        result += lastValue
+
+        return result
     }
 }
