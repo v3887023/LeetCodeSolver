@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
 import java.util.*
@@ -31,32 +31,27 @@ class P103 {
     fun zigzagLevelOrder(root: TreeNode?): List<List<Int>> {
         val result = ArrayList<List<Int>>()
         val queue = LinkedList<TreeNode>()
-        val stack = LinkedList<TreeNode>()
 
         var level = 0
 
         root?.let { queue.offer(it) }
 
-        while (queue.isNotEmpty() && stack.isNotEmpty()) {
+        while (queue.isNotEmpty()) {
             val list = ArrayList<Int>()
-            if (level and 1 == 0) {
-                repeat(queue.size) {
-                    val node = queue.poll()
-                    list.add(node.`val`)
-                    node.left?.let { stack.push(it) }
-                    node.right?.let { stack.push(it) }
-                }
+            repeat(queue.size) {
+                val node = queue.poll()
+                list.add(node.`val`)
+                node.left?.let { queue.offer(it) }
+                node.right?.let { queue.offer(it) }
+            }
+
+            if (level and 1 == 1) {
+                result.add(list.reversed())
             } else {
-                repeat(stack.size) {
-                    val node = stack.pop()
-                    list.add(node.`val`)
-                    node.left?.let { queue.offer(it) }
-                    node.right?.let { queue.offer(it) }
-                }
+                result.add(list)
             }
 
             level++
-            result.add(list)
         }
 
         return result
