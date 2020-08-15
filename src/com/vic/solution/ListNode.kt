@@ -18,4 +18,15 @@ class ListNode(var `val`: Int) {
         }
     }
 
+    override fun toString(): String {
+        val list = ArrayList<Int>()
+
+        var p: ListNode? = this
+        while (p != null) {
+            list.add(p.`val`)
+            p = p.next
+        }
+
+        return list.toString()
+    }
 }
