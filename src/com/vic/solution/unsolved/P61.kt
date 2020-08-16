@@ -49,7 +49,7 @@ class P61 {
         }
 
         if (p == null) {
-            p = head
+            return head
         }
 
         if (tail == null) {
@@ -68,7 +68,7 @@ class P61 {
             newHead = head.next
             head.next = null
         } else {
-            newHead = p
+            newHead = p?.next
         }
 
         p?.next = null
@@ -80,7 +80,7 @@ class P61 {
 }
 
 fun main() {
-    val newList = ListNode.newList(1, 2, 3)
+    val newList = ListNode.newList(1)
     println(newList)
-    println(P61().rotateRight(newList, 2))
+    println(P61().rotateRight(newList, 1) ?: "[]")
 }

@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 import com.vic.solution.ListNode
 
@@ -16,7 +16,30 @@ import com.vic.solution.ListNode
  */
 class P24 {
     fun swapPairs(head: ListNode?): ListNode? {
+        val fakeHead = ListNode(-1)
+        fakeHead.next = head
 
-        return null
+        var first: ListNode?
+        var second: ListNode?
+        var p: ListNode? = fakeHead
+        while (p != null) {
+            first = p.next
+            second = first?.next
+
+            if (first == null || second == null) {
+                break
+            }
+
+            p.next = second
+            first.next = second.next
+            second.next = first
+
+            p = first
+        }
+
+        val newHead = fakeHead.next
+        fakeHead.next = null
+
+        return newHead
     }
 }
