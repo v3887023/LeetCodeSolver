@@ -29,4 +29,19 @@ class P283 {
             nums[i] = 0
         }
     }
+
+    fun moveZeroes2(nums: IntArray): Unit {
+        var j = 0
+        for (i in nums.indices) {
+            if (nums[i] != 0) {
+                nums.swap(i, j++)
+            }
+        }
+    }
+
+    private fun IntArray.swap(i: Int, j: Int) {
+        val temp = this[i]
+        this[i] = this[j]
+        this[j] = temp
+    }
 }
