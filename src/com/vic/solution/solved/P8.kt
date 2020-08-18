@@ -1,4 +1,6 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
+
+import com.vic.solution.println
 
 /**
  * 8. 字符串转换整数 (atoi)
@@ -15,7 +17,7 @@ package com.vic.solution.unsolved
  *
  * 【提示】
  * 本题中的空白字符只包括空格字符 ' ' 。
- * 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。
+ * 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−2^31,  2^31 − 1]。如果数值超过这个范围，请返回  INT_MAX (2^31 − 1) 或 INT_MIN (−2^31) 。
  *
  * 【示例 1】
  * 输入: "42"
@@ -47,8 +49,62 @@ package com.vic.solution.unsolved
  */
 class P8 {
     fun myAtoi(str: String): Int {
+        var i = 0
+        val length = str.length
 
+        // 过滤前导的空格
+        while (i < length && str[i] == ' ') {
+            i++
+        }
+
+        if (i < length) {
+            val sb = StringBuilder()
+
+            var negative = false
+            var isNumber = true
+
+            when (val c = str[i++]) {
+                '-' -> negative = true
+                '+' -> { }
+                in '0'..'9' -> sb.append(c)
+                else -> isNumber = false
+            }
+
+            if (isNumber) {
+                while (i < length) {
+                    val c = str[i]
+                    if (c in '0'..'9') {
+                        sb.append(c)
+                        i++
+                    } else {
+                        break
+                    }
+                }
+
+                return parse(negative, sb.toString())
+            }
+        }
 
         return 0
     }
+
+    private fun parse(negative: Boolean, s: String): Int {
+        var x = 0L
+        val sign = if (negative) -1 else 1
+        for ((i, c) in s.withIndex()) {
+            x = x * 10 + (c - '0')
+            val result = sign * x
+            if (result > Int.MAX_VALUE) {
+                return Int.MAX_VALUE
+            } else if (result < Int.MIN_VALUE) {
+                return Int.MIN_VALUE
+            }
+        }
+
+        return (sign * x).toInt()
+    }
+}
+
+fun main() {
+    P8().myAtoi("-12ww").println()
 }
