@@ -1,7 +1,6 @@
 package com.vic.solution.solved
 
 import com.vic.solution.ListNode
-import com.vic.solution.println
 
 /**
  * 61. 旋转链表

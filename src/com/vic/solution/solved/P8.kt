@@ -1,7 +1,5 @@
 package com.vic.solution.solved
 
-import com.vic.solution.println
-
 /**
  * 8. 字符串转换整数 (atoi)
  * 请你来实现一个 atoi 函数，使其能将字符串转换成整数。
@@ -103,8 +101,4 @@ class P8 {
 
         return (sign * x).toInt()
     }
-}
-
-fun main() {
-    P8().myAtoi("-12ww").println()
 }
