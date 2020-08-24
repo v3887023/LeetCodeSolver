@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 299. 猜数字游戏
@@ -33,40 +33,31 @@ package com.vic.solution.unsolved
 class P299 {
     fun getHint(secret: String, guess: String): String {
         val map = IntArray(10)
-        val array = IntArray(10)
 
-        for (c in secret) {
-            map[c - '0'] = 1
-        }
+        var a = 0
+        var b = 0
 
         for (i in secret.indices) {
-            val s = secret[i]
-            val t = guess[i]
+            val s = secret[i] - '0'
+            val g = guess[i] - '0'
 
-            val j = t - '0'
-            if (map[j] == 1) {
-                if (s == t) {
-                    if (array[j] < 0) {
-                        array[j] = 1
-                    } else {
-                        array[j]++
-                    }
+            if (s == g) {
+                a++
+            } else {
+                if (map[s] < 0) {
+                    b++
+                }
+
+                map[s]++
+                if (map[g] > 0) {
+                    map[g]--
+                    b++
                 } else {
-                    if (array[j] <= 0) {
-                        array[j]--
-                    }
+                    map[g]--
                 }
             }
         }
 
-        var a = 0
-        var b = 0
-        for (i in array) {
-            when {
-                i > 0 -> a += i
-                i < 0 -> b++
-            }
-        }
 
         return "${a}A${b}B"
     }
