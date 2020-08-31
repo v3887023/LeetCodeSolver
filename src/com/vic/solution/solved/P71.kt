@@ -55,7 +55,8 @@ class P71 {
             if (c == '/') {
                 if (lastSlashIndex != -1) {
                     when (val s = path.substring(lastSlashIndex + 1, i)) {
-                        "", "." -> {}
+                        "", "." -> {
+                        }
                         ".." -> if (stack.isNotEmpty()) stack.pop()
                         else -> stack.push(s)
                     }
@@ -71,7 +72,7 @@ class P71 {
         }
 
         val sb = StringBuilder()
-        for (j in stack.lastIndex downTo  0) {
+        for (j in stack.lastIndex downTo 0) {
             sb.append('/').append(stack[j])
         }
 

@@ -1,7 +1,6 @@
 package com.vic.solution.solved
 
 import com.vic.solution.ListNode
-import com.vic.solution.println
 
 /**
  * 328. 奇偶链表

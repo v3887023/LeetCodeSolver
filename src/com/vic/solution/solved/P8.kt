@@ -63,7 +63,8 @@ class P8 {
 
             when (val c = str[i++]) {
                 '-' -> negative = true
-                '+' -> { }
+                '+' -> {
+                }
                 in '0'..'9' -> sb.append(c)
                 else -> isNumber = false
             }
