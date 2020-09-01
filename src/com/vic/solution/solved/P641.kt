@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 641. 设计循环双端队列
@@ -45,43 +45,60 @@ class P641 {
 
         /** Adds an item at the front of Deque. Return true if the operation is successful. */
         fun insertFront(value: Int): Boolean {
-            return false
+            if (isFull()) {
+                return false
+            }
+
+            front = if (front == 0) array.lastIndex else front - 1
+            array[front] = value
+
+            return true
         }
 
         /** Adds an item at the rear of Deque. Return true if the operation is successful. */
         fun insertLast(value: Int): Boolean {
-            return false
+            if (isFull()) {
+                return false
+            }
+
+            array[rear] = value
+            rear = if (rear == array.lastIndex) 0 else rear + 1
+
+            return true
         }
 
         /** Deletes an item from the front of Deque. Return true if the operation is successful. */
         fun deleteFront(): Boolean {
-            return false
+            if (isEmpty()) {
+                return false
+            }
+
+            front = if (front == array.lastIndex) 0 else front + 1
+
+            return true
         }
 
         /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
         fun deleteLast(): Boolean {
-            return false
+            if (isEmpty()) {
+                return false
+            }
+
+            rear = if (rear == 0) array.lastIndex else rear - 1
+
+            return true
         }
 
         /** Get the front item from the deque. */
-        fun getFront(): Int {
-            return 0
-        }
+        fun getFront() = if (isEmpty()) -1 else array[front]
 
         /** Get the last item from the deque. */
-        fun getRear(): Int {
-            return 0
-        }
+        fun getRear() = if (isEmpty()) -1 else array[if (rear == 0) array.lastIndex else rear - 1]
 
         /** Checks whether the circular deque is empty or not. */
-        fun isEmpty(): Boolean {
-            return false
-        }
+        fun isEmpty() = front == rear
 
         /** Checks whether the circular deque is full or not. */
-        fun isFull(): Boolean {
-            return false
-
-        }
+        fun isFull() = front == (rear + 1) % array.size
     }
 }
