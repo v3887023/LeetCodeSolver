@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 169. 多数元素
@@ -20,8 +20,29 @@ package com.vic.solution.unsolved
  */
 class P169 {
     fun majorityElement(nums: IntArray): Int {
-        
+        val map = HashMap<Int, Int>()
 
+        nums.forEach {
+            map[it] = (map[it] ?: 0) + 1
+        }
+
+        val minCount = nums.size / 2
+        for ((n, count) in map) {
+            if (count > minCount) {
+                return n
+            }
+        }
+
+        return -1
+    }
+
+    fun majorityElement2(nums: IntArray): Int {
+        nums.sort()
+        return nums[nums.size / 2]
+    }
+
+    // TODO 多数元素 分治版本
+    fun majorityElement3(nums: IntArray): Int {
         return 0
     }
 }
