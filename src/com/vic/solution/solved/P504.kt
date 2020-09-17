@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 504. 七进制数
@@ -21,6 +21,10 @@ package com.vic.solution.unsolved
  */
 class P504 {
     fun convertToBase7(num: Int): String {
+        if (num == 0) {
+            return "0"
+        }
+
         val negative = num < 0
         var x = num
         if (negative) {
@@ -29,7 +33,17 @@ class P504 {
 
         val sb = StringBuilder()
 
+        val base = 7
+        while (x > 0) {
+            val digit = x % base
+            sb.append(digit)
+            x /= base
+        }
 
-        return ""
+        if (negative) {
+            sb.append('-')
+        }
+
+        return sb.reverse().toString()
     }
 }
