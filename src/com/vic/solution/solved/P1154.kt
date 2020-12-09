@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 /**
  * 1154. 一年中的第几天
@@ -33,7 +33,24 @@ package com.vic.solution.unsolved
  */
 class P1154 {
     fun dayOfYear(date: String): Int {
+        val split = date.split("-")
+        val year = split[0].toInt()
+        val month = split[1].toInt()
+        val day = split[2].toInt()
 
-        return 0
+        val leapYear = isLeapYear(year)
+        val dayOfMonth = arrayOf(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+        dayOfMonth[2] = if (leapYear) 29 else 28
+
+        var count = day
+        for (m in 1 until month) {
+            count += dayOfMonth[m]
+        }
+
+        return count
+    }
+
+    private fun isLeapYear(year: Int): Boolean {
+        return year % 400 == 0 || year % 100 != 0 && year % 4 == 0
     }
 }
