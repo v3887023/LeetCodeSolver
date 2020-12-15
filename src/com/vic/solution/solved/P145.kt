@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
 import java.util.*
@@ -27,24 +27,27 @@ import kotlin.collections.ArrayList
  */
 class P145 {
     fun postorderTraversal(root: TreeNode?): List<Int> {
-        val list = ArrayList<Int>()
+        val list = mutableListOf<Int>()
         val stack = LinkedList<TreeNode>()
+        // 保存结点是否可以访问的 map，后序遍历需要左右结点均访问过才能访问当前结点
+        val shouldVisitMap = mutableMapOf<TreeNode, Boolean>()
 
         var p = root
         while (stack.isNotEmpty() || p != null) {
             if (p == null) {
-                val node = stack.pop()
-                list.add(node.`val`)
-                p = stack.peek().right
-            } else if (p.left != null) {
+                val parent = stack.peek()
+                if (shouldVisitMap[parent] == true) {
+                    list.add(parent.`val`)
+                    stack.pop()
+                } else {
+                    // 右结点即将访问，parent 结点将在下一次可访问
+                    shouldVisitMap[parent] = true
+                    p = parent.right
+                }
+            } else {
+                shouldVisitMap[p] = false
                 stack.push(p)
                 p = p.left
-            } else if (p.right != null) {
-                stack.push((p))
-                p = p.right
-            } else {
-                stack.push(p)
-                p = null
             }
         }
 

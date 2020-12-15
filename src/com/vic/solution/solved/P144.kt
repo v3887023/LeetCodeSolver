@@ -27,10 +27,18 @@ import kotlin.collections.ArrayList
  */
 class P144 {
     fun preorderTraversal(root: TreeNode?): List<Int> {
-        val list = ArrayList<Int>()
+        val list = mutableListOf<Int>()
         val stack = LinkedList<TreeNode>()
-
-
+        var p = root
+        while (stack.isNotEmpty() || p != null) {
+            p = if (p == null) {
+                stack.pop().right
+            } else {
+                list.add(p.`val`)
+                stack.push(p)
+                p.left
+            }
+        }
 
         return list
     }
