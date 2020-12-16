@@ -1,8 +1,5 @@
 package com.vic.solution.unsolved
 
-import com.vic.solution.println
-import kotlin.math.min
-
 /**
  * 880. 索引处的解码字符串
  * 给定一个编码字符串 S。请你找出 解码字符串 并将其写入磁带。解码时，从编码字符串中 每次读取一个字符 ，并采取以下步骤：

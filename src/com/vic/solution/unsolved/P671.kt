@@ -9,7 +9,7 @@ import com.vic.solution.TreeNode
  *
  * 更正式地说，root.val = min(root.left.val, root.right.val) 总成立。
  * 给出这样的一个二叉树，你需要输出所有节点中的第二小的值。如果第二小的值不存在的话，输出 -1 。
- *  
+ *
  * 【示例 1】
  * 输入：root = [2,2,5,null,null,5,7]
  * 输出：5
