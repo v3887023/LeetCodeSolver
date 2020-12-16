@@ -1,6 +1,7 @@
-package com.vic.solution.unsolved
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
+import java.util.*
 
 /**
  * 993. 二叉树的堂兄弟节点
@@ -47,8 +48,49 @@ import com.vic.solution.TreeNode
  */
 class P993 {
     fun isCousins(root: TreeNode?, x: Int, y: Int): Boolean {
+        val stack = LinkedList<TreeNode>()
+        val shouldVisitMap = mutableMapOf<TreeNode, Boolean>()
 
+        var p = root
+        var parent: TreeNode? = null
+        var xParent: TreeNode? = null
+        var yParent: TreeNode? = null
+        var xDepth: Int = -1
+        var yDepth: Int = -2
+        var depth = 0
+        while (stack.isNotEmpty() || p != null) {
+            if (p == null) {
+                parent = stack.peek()
+                if (shouldVisitMap[parent] == true) {
+                    stack.pop()
+                    depth--
+                } else {
+                    shouldVisitMap[parent] = true
+                    p = parent.right
+                }
+            } else {
+                when (p.`val`) {
+                    x -> {
+                        xDepth = depth
+                        xParent = parent
+                    }
+                    y -> {
+                        yDepth = depth
+                        yParent = parent
+                    }
+                }
 
-        return false
+                if (xParent != null && yParent != null) {
+                    break
+                }
+
+                stack.push(p)
+                parent = p
+                depth++
+                p = p.left
+            }
+        }
+
+        return xDepth == yDepth && xParent != yParent
     }
 }
