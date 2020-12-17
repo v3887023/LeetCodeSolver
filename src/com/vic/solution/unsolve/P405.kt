@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.unsolve
 
 /**
  * 405. 数字转换为十六进制数

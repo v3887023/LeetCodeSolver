@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.unsolve
 
 /**
  * 53. 最大子序和

@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.unsolve
 
 /**
  * 796. 旋转字符串

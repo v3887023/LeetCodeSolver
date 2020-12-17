@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.trying
 
 import java.util.*
 

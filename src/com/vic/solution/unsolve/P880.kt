@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.unsolve
 
 /**
  * 880. 索引处的解码字符串

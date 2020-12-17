@@ -49,7 +49,6 @@ class TreeNode(var `val`: Int) {
                 return null
             }
 
-
             try {
                 val value = s.toInt()
                 return TreeNode(value)
