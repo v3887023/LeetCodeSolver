@@ -1,6 +1,7 @@
-package com.vic.solution.unsolve
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
+import java.util.*
 
 /**
  * 513. 找树左下角的值
@@ -35,8 +36,22 @@ import com.vic.solution.TreeNode
  */
 class P513 {
     fun findBottomLeftValue(root: TreeNode?): Int {
+        var bottomLeftValue = 0
+        val queue = LinkedList<TreeNode>()
+        root?.let { queue.offer(it) }
 
+        while (queue.isNotEmpty()) {
+            val count = queue.size
 
-        return 0
+            bottomLeftValue = queue.peek().`val`
+
+            repeat(count) {
+                val node = queue.poll()
+                node.left?.let { queue.offer(it) }
+                node.right?.let { queue.offer(it) }
+            }
+        }
+
+        return bottomLeftValue
     }
 }

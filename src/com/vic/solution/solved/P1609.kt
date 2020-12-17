@@ -1,6 +1,7 @@
-package com.vic.solution.unsolve
+package com.vic.solution.solved
 
 import com.vic.solution.TreeNode
+import java.util.*
 
 /**
  * 1609. 奇偶树
@@ -68,8 +69,35 @@ import com.vic.solution.TreeNode
  */
 class P1609 {
     fun isEvenOddTree(root: TreeNode?): Boolean {
+        val queue = LinkedList<TreeNode>()
+        root?.let { queue.offer(it) }
 
+        var evenLevel = true
+        while (queue.isNotEmpty()) {
+            val count = queue.size
 
-        return false
+            var lastValue = if (evenLevel) Int.MIN_VALUE else Int.MAX_VALUE
+
+            repeat(count) {
+                val node = queue.poll()
+                val value = node.`val`
+                if (evenLevel) {
+                    if (value and 1 == 0 || value <= lastValue) {
+                        return false
+                    }
+                } else {
+                    if (value and 1 == 1 || value >= lastValue) {
+                        return false
+                    }
+                }
+
+                lastValue = value
+                node.left?.let { queue.offer(it) }
+                node.right?.let { queue.offer(it) }
+            }
+            evenLevel = !evenLevel
+        }
+
+        return true
     }
 }
