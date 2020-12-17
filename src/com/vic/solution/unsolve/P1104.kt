@@ -1,4 +1,4 @@
-package com.vic.solution.unsolved
+package com.vic.solution.unsolve
 
 /**
  * 1104. 二叉树寻路
