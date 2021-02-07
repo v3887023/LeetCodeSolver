@@ -1,6 +1,7 @@
 package com.vic.solution.unsolve
 
 import com.vic.solution.TreeNode
+import java.util.*
 
 /**
  * 1325. 删除给定值的叶子节点
@@ -61,7 +62,23 @@ import com.vic.solution.TreeNode
  */
 class P1325 {
     fun removeLeafNodes(root: TreeNode?, target: Int): TreeNode? {
-
+        val stack = LinkedList<TreeNode>()
+        val shouldVisitMap = mutableMapOf<TreeNode, Boolean>()
+        var p = root
+        while (stack.isNotEmpty() || p != null) {
+            if (p == null) {
+                val parent = stack.peek()
+                if (shouldVisitMap[parent] == true) {
+                    stack.pop()
+                } else {
+                    shouldVisitMap[parent] = true
+                    p = parent.right
+                }
+            } else {
+                stack.push(p)
+                p = p.left
+            }
+        }
 
         return null
     }
