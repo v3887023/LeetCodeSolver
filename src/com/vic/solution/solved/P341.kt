@@ -1,4 +1,7 @@
-package com.vic.solution.unsolve
+package com.vic.solution.solved
+
+import java.util.*
+import kotlin.NoSuchElementException
 
 /**
  * 341. 扁平化嵌套列表迭代器
@@ -49,11 +52,46 @@ class P341 {
     }
 
     class NestedIterator(nestedList: List<NestedInteger>) {
+        private val stack = LinkedList<NestedInteger>()
+
+        init {
+            if (nestedList.isNotEmpty()) {
+                val nestedInteger = NestedInteger()
+                nestedList.forEach { nestedInteger.add(it) }
+                stack.push(nestedInteger)
+            }
+        }
+
         fun next(): Int {
-            return 0
+            while (stack.isNotEmpty()) {
+                val nestedInteger = stack.pop()
+                if (nestedInteger.isInteger()) {
+                    return nestedInteger.getInteger()!!
+                } else {
+                    val list = nestedInteger.getList()!!
+                    for (i in list.lastIndex downTo 0) {
+                        stack.push(list[i])
+                    }
+                }
+            }
+
+            throw NoSuchElementException()
         }
 
         fun hasNext(): Boolean {
+            while (stack.isNotEmpty()) {
+                val peek = stack.peek()
+                if (peek.isInteger()) {
+                    return true
+                } else {
+                    val list = peek.getList()!!
+                    stack.pop()
+                    for (i in list.lastIndex downTo 0) {
+                        stack.push(list[i])
+                    }
+                }
+            }
+
             return false
         }
     }
