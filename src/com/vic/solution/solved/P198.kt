@@ -48,4 +48,21 @@ class P198 {
 
         return dp[size - 1]
     }
+
+    fun rob2(nums: IntArray): Int {
+        if (nums.isEmpty()) {
+            return 0
+        }
+
+        var first = 0
+        var second = nums[0]
+
+        for (i in 1 until nums.size) {
+            val temp = second
+            second = max(second, first + nums[i])
+            first = temp
+        }
+
+        return second
+    }
 }
