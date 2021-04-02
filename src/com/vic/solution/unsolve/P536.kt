@@ -1,6 +1,6 @@
 package com.vic.solution.unsolve
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 563. 二叉树的坡度

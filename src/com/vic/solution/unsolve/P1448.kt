@@ -1,6 +1,6 @@
 package com.vic.solution.unsolve
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 1448. 统计二叉树中好节点的数目

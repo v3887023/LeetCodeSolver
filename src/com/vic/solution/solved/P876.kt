@@ -1,6 +1,6 @@
 package com.vic.solution.solved
 
-import com.vic.solution.ListNode
+import com.vic.solution.common.ListNode
 
 /**
  * 876. 链表的中间结点

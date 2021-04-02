@@ -1,6 +1,6 @@
 package com.vic.solution.unsolve
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 958. 二叉树的完全性检验

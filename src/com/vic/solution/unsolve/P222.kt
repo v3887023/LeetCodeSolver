@@ -1,6 +1,6 @@
 package com.vic.solution.unsolve
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 222. 完全二叉树的节点个数

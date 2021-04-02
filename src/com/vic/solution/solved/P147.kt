@@ -1,6 +1,6 @@
 package com.vic.solution.solved
 
-import com.vic.solution.ListNode
+import com.vic.solution.common.ListNode
 
 /**
  * 147. 对链表进行插入排序

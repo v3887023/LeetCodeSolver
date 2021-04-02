@@ -1,6 +1,6 @@
 package com.vic.solution.solved
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 114. 二叉树展开为链表

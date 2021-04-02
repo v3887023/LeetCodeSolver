@@ -1,6 +1,6 @@
 package com.vic.solution.solved
 
-import com.vic.solution.ListNode
+import com.vic.solution.common.ListNode
 
 /**
  * 86. 分隔链表

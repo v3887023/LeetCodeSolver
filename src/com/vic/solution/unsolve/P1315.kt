@@ -1,6 +1,6 @@
 package com.vic.solution.unsolve
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 
 /**
  * 1315. 祖父节点值为偶数的节点和

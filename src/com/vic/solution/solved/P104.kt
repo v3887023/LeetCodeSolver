@@ -1,6 +1,6 @@
 package com.vic.solution.solved
 
-import com.vic.solution.TreeNode
+import com.vic.solution.common.TreeNode
 import kotlin.math.max
 
 /**

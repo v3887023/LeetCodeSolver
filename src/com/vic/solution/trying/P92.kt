@@ -1,6 +1,6 @@
 package com.vic.solution.trying
 
-import com.vic.solution.ListNode
+import com.vic.solution.common.ListNode
 import com.vic.solution.println
 
 /**

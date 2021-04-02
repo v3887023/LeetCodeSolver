@@ -1,4 +1,4 @@
-package com.vic.solution
+package com.vic.solution.common
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
