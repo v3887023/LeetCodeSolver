@@ -53,17 +53,19 @@ class P412 {
         val list = ArrayList<String>()
 
         for (i in 1..n) {
-            list.add(if (i % 3 == 0) {
-                if (i % 5 == 0) {
-                    "FizzBuzz"
+            list.add(
+                if (i % 3 == 0) {
+                    if (i % 5 == 0) {
+                        "FizzBuzz"
+                    } else {
+                        "Fizz"
+                    }
+                } else if (i % 5 == 0) {
+                    "Buzz"
                 } else {
-                    "Fizz"
+                    "$i"
                 }
-            } else if (i % 5 == 0) {
-                "Buzz"
-            } else {
-                "$i"
-            })
+            )
         }
 
         return list
@@ -73,11 +75,13 @@ class P412 {
         val list = ArrayList<String>()
 
         for (i in 1..n) {
-            list.add(when {
-                i % 3 == 0 -> if (i % 5 == 0) "FizzBuzz" else "Fizz"
-                i % 5 == 0 -> "Buzz"
-                else -> "$i"
-            })
+            list.add(
+                when {
+                    i % 3 == 0 -> if (i % 5 == 0) "FizzBuzz" else "Fizz"
+                    i % 5 == 0 -> "Buzz"
+                    else -> "$i"
+                }
+            )
         }
 
         return list

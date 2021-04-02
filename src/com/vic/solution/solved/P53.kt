@@ -24,7 +24,6 @@ class P53 {
             return 0
         }
 
-
         // dp[i] 表示以 nums[i] 结尾的“最大子序和”
         val dp = IntArray(nums.size)
         dp[0] = nums[0]
