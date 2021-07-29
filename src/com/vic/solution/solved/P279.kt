@@ -44,6 +44,7 @@ class P279 {
                 val end = ceil(sqrtF)
                 while (j < end) {
                     val num = j * j
+                    // 其实 dp[num] 的值为 1
                     val current = dp[num] + dp[i - num]
                     min = min(min, current)
                     j++
@@ -53,6 +54,25 @@ class P279 {
             }
 
             i++
+        }
+
+        return dp[n]
+    }
+
+    fun numSquares2(n: Int): Int {
+        val dp = IntArray(n + 1)
+
+        for (i in 1..n) {
+            var num = 1
+            var j = 1
+            var min = Int.MAX_VALUE
+            while (num <= i) {
+                min = min(min, dp[i - num])
+                j++
+                num = j * j
+            }
+
+            dp[i] = min + 1
         }
 
         return dp[n]
