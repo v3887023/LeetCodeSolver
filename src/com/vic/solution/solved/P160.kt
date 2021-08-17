@@ -60,4 +60,18 @@ class P160 {
 
         return fast
     }
+
+    fun getIntersectionNode2(headA: ListNode?, headB: ListNode?): ListNode? {
+        var p1 = headA
+        var p2 = headB
+
+        while (p1 != p2) {
+            // p1 == null 时，说明，链表 A 已遍历完，下一个从链表 B 头结点开始遍历
+            p1 = if (p1 == null) headB else p1.next
+            // p2 == null 时，说明，链表 B 已遍历完，下一个从链表 A 头结点开始遍历
+            p2 = if (p2 == null) headA else p2.next
+        }
+
+        return p1
+    }
 }
