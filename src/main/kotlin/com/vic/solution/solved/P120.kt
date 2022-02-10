@@ -57,7 +57,7 @@ class P120 {
             }
         }
 
-        return dp[size - 1].min() ?: 0
+        return dp[size - 1].minOrNull() ?: 0
     }
 
     fun minimumTotal2(triangle: List<List<Int>>): Int {
@@ -74,6 +74,6 @@ class P120 {
             dp[0] = dp[0] + triangle[i][0]
         }
 
-        return dp.min() ?: 0
+        return dp.minOrNull() ?: 0
     }
 }

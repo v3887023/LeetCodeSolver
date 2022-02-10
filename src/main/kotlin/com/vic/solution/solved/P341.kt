@@ -1,7 +1,6 @@
 package com.vic.solution.solved
 
 import java.util.*
-import kotlin.NoSuchElementException
 
 /**
  * 341. 扁平化嵌套列表迭代器

@@ -32,7 +32,7 @@ class P53 {
             dp[i] = max(nums[i], nums[i] + dp[i - 1])
         }
 
-        return dp.max() ?: 0
+        return dp.maxOrNull() ?: 0
     }
 
     fun maxSubArray2(nums: IntArray): Int {

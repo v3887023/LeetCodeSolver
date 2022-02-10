@@ -1,7 +1,6 @@
 package com.vic.solution.solved
 
 import java.util.*
-import kotlin.collections.HashMap
 
 /**
  * 496. 下一个更大元素 I

@@ -45,6 +45,6 @@ class P300 {
             }
         }
 
-        return dp.max() ?: 1
+        return dp.maxOrNull() ?: 1
     }
 }

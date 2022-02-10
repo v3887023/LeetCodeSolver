@@ -54,7 +54,6 @@ fun main() {
     println("end")
 
     Student().name
-    Student().isMan
 }
 
 fun a(list: List<Int>) {
@@ -132,7 +131,7 @@ fun main2() {
     list.map(String::length).forEach(::println)
     list.map { it.length }.forEach { println(it) }
 
-    list.maxBy { it.length }
+    list.maxByOrNull { it.length }
 
     list.forEach { println(it) }
     for (n in list) {

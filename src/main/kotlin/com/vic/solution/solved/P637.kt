@@ -2,7 +2,6 @@ package com.vic.solution.solved
 
 import com.vic.solution.common.TreeNode
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * 637. 二叉树的层平均值
