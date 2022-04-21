@@ -1,8 +1,26 @@
 package com.vic.solution.algorithm.sort
 
 fun main() {
-    val list = mutableListOf(8, 12, 9, 1, 90, 3, 0, 100, -2, 9)
-    val comparator = Comparator<Int> { o1, o2 -> o1 - o2 }
+    val originArray = randomArray()
+    var array: Array<Int>
 
-    BubbleSort().sort(list, comparator)
+//    array = originArray.copyOf()
+//    BubbleSort().sort(array)
+//    array.println()
+//    array.checkSorted()
+//
+//    array = originArray.copyOf()
+//    SelectionSort().sort(array)
+//    array.println()
+//    array.checkSorted()
+//
+//    array = originArray.copyOf()
+//    InsertionSort().sort(array)
+//    array.println()
+//    array.checkSorted()
+
+    array = originArray.copyOf()
+    QuickSort().sort(array)
+    array.println()
+    array.checkSorted()
 }
