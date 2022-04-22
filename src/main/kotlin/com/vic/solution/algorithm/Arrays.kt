@@ -1,4 +1,4 @@
-package com.vic.solution.algorithm.sort
+package com.vic.solution.algorithm
 
 import kotlin.random.Random
 import kotlin.random.nextInt
@@ -27,7 +27,8 @@ fun <T> Array<T>.swap(i: Int, j: Int) {
 }
 
 fun <T : Comparable<T>> Array<T>.checkSorted() {
-    if (size in 0..2) {
+    if (size in 0..1) {
+        println("已排序")
         return
     }
 
