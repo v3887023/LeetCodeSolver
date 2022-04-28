@@ -1,6 +1,6 @@
 package com.vic.solution.algorithm
 
-import com.vic.solution.algorithm.sort.impl.MergeSort
+import com.vic.solution.algorithm.sort.impl.HeapSort
 
 fun main() {
     val originArray = randomArray()
@@ -28,9 +28,15 @@ fun main() {
 //    array.println()
 //    array.checkSorted()
 
-    array = originArray.copyOf()
+//    array = originArray.copyOf()
 //    array = arrayOf(1,3,5,2,4,6,8)
-    MergeSort().sort(array)
+//    MergeSort().sort(array)
+//    array.println()
+//    array.checkSorted()
+
+//    array = originArray.copyOf()
+    array = arrayOf(3, 1, 7, 2, 6, 0, 5)
+    HeapSort().sort(array)
     array.println()
     array.checkSorted()
 }

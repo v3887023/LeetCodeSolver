@@ -1,5 +1,6 @@
-package com.vic.solution
+package com.vic.solution.learning
 
+import com.vic.solution.Student
 import java.util.*
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
