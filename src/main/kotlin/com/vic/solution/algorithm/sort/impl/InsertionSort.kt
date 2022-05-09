@@ -2,6 +2,9 @@ package com.vic.solution.algorithm.sort.impl
 
 import com.vic.solution.algorithm.sort.Sortable
 
+/**
+ * 插入排序
+ */
 class InsertionSort : Sortable {
     override fun <T : Comparable<T>> sort(array: Array<T>) {
         for (i in 1 until array.size) {

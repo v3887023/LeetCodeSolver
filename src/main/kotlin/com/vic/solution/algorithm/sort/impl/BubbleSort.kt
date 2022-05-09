@@ -3,6 +3,9 @@ package com.vic.solution.algorithm.sort.impl
 import com.vic.solution.algorithm.sort.Sortable
 import com.vic.solution.algorithm.swap
 
+/**
+ * 冒泡排序
+ */
 class BubbleSort : Sortable {
     override fun <T : Comparable<T>> sort(array: Array<T>) {
         var sorted: Boolean

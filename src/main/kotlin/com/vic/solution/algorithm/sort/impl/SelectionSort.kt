@@ -3,6 +3,9 @@ package com.vic.solution.algorithm.sort.impl
 import com.vic.solution.algorithm.sort.Sortable
 import com.vic.solution.algorithm.swap
 
+/**
+ * 选择排序
+ */
 class SelectionSort : Sortable {
     override fun <T : Comparable<T>> sort(array: Array<T>) {
         val size = array.size

@@ -4,6 +4,9 @@ import com.vic.solution.algorithm.println
 import com.vic.solution.algorithm.sort.Sortable
 import com.vic.solution.algorithm.swap
 
+/**
+ * 快速排序
+ */
 class QuickSort : Sortable {
     override fun <T : Comparable<T>> sort(array: Array<T>) {
         quickSort(array, 0, array.lastIndex)
