@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.20"
+    kotlin("jvm") version "1.7.20"
     application
 }
 
@@ -10,8 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
 }
 
 tasks.withType<KotlinCompile> {
